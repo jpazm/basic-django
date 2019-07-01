@@ -56,7 +56,7 @@ ROOT_URLCONF = 'trydjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [os.path.join(BASE_DIR, "templates")], # aqí configuramos la ruta donde estan los templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
