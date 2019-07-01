@@ -14,7 +14,7 @@
     {% elif abc == "Abc" %}
         <li>this is not a movie</li>
     {% else %}
-        <li> {{ forloop.counter }} - {{ abc|capfirst }} </li>
+        <li> {{ forloop.counter }} - {{ abc|capfirst|upper }} </li>
     {% endif %}
 {% endfor %}
 </ul>
