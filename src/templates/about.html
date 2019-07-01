@@ -8,8 +8,14 @@
 </p>
 
 <ul>
-{% for item in my_list %}
-    <li> {{ forloop.counter }} - {{ item }}</li>
+{% for abc in my_list %}
+    {% if abc == 43 %}
+        <li> {{ forloop.counter }} - {{ abc|add:2 }}</li>
+    {% elif abc == "Abc" %}
+        <li>This is not a movie</li>
+    {% else %}
+        <li> {{ forloop.counter }} - {{ abc }} </li>
+    {% endif %}
 {% endfor %}
 </ul>
 
