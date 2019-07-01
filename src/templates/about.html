@@ -9,7 +9,7 @@
 
 <ul>
 {% for item in my_list %}
-    <li>{{ item }}</li>
+    <li> {{ forloop.counter }} - {{ item }}</li>
 {% endfor %}
 </ul>
 
