@@ -12,9 +12,9 @@
     {% if abc == 43 %}
         <li> {{ forloop.counter }} - {{ abc|add:2 }}</li>
     {% elif abc == "Abc" %}
-        <li>This is not a movie</li>
+        <li>this is not a movie</li>
     {% else %}
-        <li> {{ forloop.counter }} - {{ abc }} </li>
+        <li> {{ forloop.counter }} - {{ abc|capfirst }} </li>
     {% endif %}
 {% endfor %}
 </ul>
