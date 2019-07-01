@@ -7,4 +7,10 @@
     {{ my_text }}  and my age is {{ my_age }}
 </p>
 
+<ul>
+{% for item in my_list %}
+    <li>{{ item }}</li>
+{% endfor %}
+</ul>
+
 {% endblock %}
