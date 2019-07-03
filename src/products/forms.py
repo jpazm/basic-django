@@ -5,6 +5,7 @@ from .models import Product
 class ProductForm(forms.ModelForm):
     title = forms.CharField(label='',
         widget=forms.TextInput(attrs={"placeholder": "Your title"}))
+    email = forms.EmailField()
     description = forms.CharField(
         required=False, 
         widget=forms.Textarea(
@@ -34,6 +35,12 @@ class ProductForm(forms.ModelForm):
             raise forms.ValidationError("This is not a valid title")
         else:
             return title
+    
+    def clean_email(self, *args, **kwargs):
+        email = self.cleaned_data.get("email")
+        if not email.endswith("edu"):
+            raise forms.ValidationError("This is not a valid email")
+        return email
 
 # los siguientes campos tienen que coincidir con los del modelo
 class RawProductForm(forms.Form):
