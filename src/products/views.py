@@ -2,19 +2,19 @@ from django.shortcuts import render
 from .models import Product
 from .forms import ProductForm, RawProductForm
 
-def product_create_view(request):
-    my_form = RawProductForm()
-    if request.method == "POST":
-        my_form = RawProductForm(request.POST)
-        if my_form.is_valid():
-            print(my_form.cleaned_data)
-        else: 
-            print(**my_form.cleaned_data)
+# def product_create_view(request):
+#     my_form = RawProductForm()
+#     if request.method == "POST":
+#         my_form = RawProductForm(request.POST)
+#         if my_form.is_valid():
+#             print(my_form.cleaned_data)
+#         else: 
+#             print(**my_form.cleaned_data)
 
-    context = {
-        "form": my_form
-    }
-    return render(request, "products/product_create.html", context)
+#     context = {
+#         "form": my_form
+#     }
+#     return render(request, "products/product_create.html", context)
 
 
 
@@ -29,15 +29,15 @@ def product_create_view(request):
 #     return render(request, "products/product_create.html", context)
 
 
-# def product_create_view(request):
-#     form = ProductForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         form = ProductForm() # añadimos esto par poner la forma en blanco despues de enviar datos
-#     context = {
-#         'form': form
-#     }
-#     return render(request, "products/product_create.html", context)
+def product_create_view(request):
+    form = ProductForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = ProductForm() # añadimos esto par poner la forma en blanco despues de enviar datos
+    context = {
+        'form': form
+    }
+    return render(request, "products/product_create.html", context)
 
 
 
