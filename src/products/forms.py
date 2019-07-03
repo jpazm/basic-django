@@ -11,6 +11,7 @@ class ProductForm(forms.ModelForm):
             'price'
         ]
 
+# los siguientes campos tienen que coincidir con los del modelo
 class RawProductForm(forms.Form):
     title = forms.CharField()
     description = forms.CharField()
