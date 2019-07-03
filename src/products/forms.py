@@ -28,11 +28,12 @@ class ProductForm(forms.ModelForm):
 
     def clean_title(self, *args, **kwargs):
         title = self.cleaned_data.get("title")
-        if "CFE" in title:
-            return title
-        else:
+        if not "CFE" in title:
             raise forms.ValidationError("This is not a valid title")
-
+        if not "news" in title:
+            raise forms.ValidationError("This is not a valid title")
+        else:
+            return title
 
 # los siguientes campos tienen que coincidir con los del modelo
 class RawProductForm(forms.Form):
