@@ -6,7 +6,10 @@ def render_initial_data(request):
     initial_data = {
         'title': "This is my shitty title"
     }
-    form = RawProductForm(request.POST or None, initial=initial_data)
+    obj = Product.objects.get(id=1)
+    form = ProductForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
     context = {
         'form': form
     }
