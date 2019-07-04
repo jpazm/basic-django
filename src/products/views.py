@@ -1,9 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product
 from .forms import ProductForm, RawProductForm
+from django.http import Http404
 
 def dynamic_lookup_view(request, my_id):
-    obj = Product.objects.get(id=my_id)
+    # obj = Product.objects.get(id=my_id)
+    obj = get_object_or_404(Product, id=my_id)
+    # la linea de arriba hace lo mismo que las siguientes comentadas
+    # try:
+    #     obj = Product.objects.get(id=my_id)
+    # except Product.DoesNotExist:
+    #     raise Http404
     context = {
         "object": obj
     }
